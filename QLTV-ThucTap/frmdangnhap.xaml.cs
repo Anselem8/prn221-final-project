@@ -39,8 +39,8 @@ namespace QLTV_ThucTap
         {
             this.Hide();
             MainWindow frmMain = new MainWindow();
-            // frmMain.ShowDialog();
-            frmMain.
+            frmMain.ShowDialog();
+            //frmMain.
             // DataClasses1DataContext db = new DataClasses1DataContext();
             // List<NHAN_VIEN> data = db.NHAN_VIENs.Where(t => t.tenNV == txtDangNhap.Text && t.matKhau == txtMatkhau.Password).ToList();
             /* {
