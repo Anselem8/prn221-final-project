@@ -1,0 +1,48 @@
+﻿<Window x:Class="QLTV_ThucTap.TestMuon"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLTV_ThucTap"
+        mc:Ignorable="d"
+         Title="Danh Sách Mượn" Icon="D:\NGAN\ThucTap\Final\QLTV\QLTV\hinhanh\account.png" Background="LightSeaGreen"  VerticalAlignment="Center" Height="500" Width="1000" Margin="0,0,0,7" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Margin="0,0,6,0"  >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Auto" Margin="0,5,58,15" Grid.RowSpan="3" >
+
+            <DataGrid  
+            Name="datagrid" 
+            Background="LightSeaGreen" 
+            CanUserAddRows="False" 
+            CanUserReorderColumns="False" 
+            CanUserResizeRows="False" 
+            IsReadOnly="True" 
+            CanUserResizeColumns="True" 
+            CanUserSortColumns="False" 
+            Foreground="White" 
+            FontFamily="Comic Sans MS"  
+            Grid.Row="2" 
+            AutoGenerateColumns="False" Height="400"
+                
+           >
+
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header="Mã Phiếu" Width="120" Binding="{Binding maPhieu}"/>
+                    <DataGridTextColumn Header="Mã Sinh Viên" Width="120" Binding="{Binding maSV}"/>
+                    <DataGridTextColumn Header="Mã Nhân Viên" Width="120" Binding="{Binding maNV}"/>
+                    <DataGridTextColumn Header="Mã Sách" Width="120" Binding="{Binding maSach}"/>
+                    <DataGridTextColumn Header="Ngày Mượn" Width="180" Binding="{Binding ngayMuon}"/>
+                    <DataGridTextColumn Header="Ngày Trả" Width="180" Binding="{Binding ngayTra}"/>
+                    <DataGridTextColumn Header="So Luong" Width="180" Binding="{Binding soLuong}"/>
+                    <DataGridTextColumn Header="Tình Trạng" Width="150" Binding="{Binding tinhTrang}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </ScrollViewer>
+    </Grid>
+</Window>

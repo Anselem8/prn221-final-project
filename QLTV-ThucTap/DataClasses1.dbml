@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLTV_ThucTap" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=NGAN\SQLEXPRESS;Initial Catalog=QLTV_ThucTap;Integrated Security=True" SettingsObjectName="QLTV_ThucTap.Properties.Settings" SettingsPropertyName="QLTV_ThucTapConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CT_PHIEUMUON" Member="CT_PHIEUMUONs">
+    <Type Name="CT_PHIEUMUON">
+      <Column Name="maSV" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="maPhieu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="maSach" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ngayTra" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="tinhTrang" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ngayMuon" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="soLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NHA_XUAT_BAN" Member="NHA_XUAT_BANs">
+    <Type Name="NHA_XUAT_BAN">
+      <Column Name="maNXB" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="tenNXB" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="diachiNXB" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="dienthoaiNXB" Type="System.String" DbType="Char(11)" CanBeNull="true" />
+      <Column Name="websiteNXB" Type="System.String" DbType="Char(100)" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NHAN_VIEN" Member="NHAN_VIENs">
+    <Type Name="NHAN_VIEN">
+      <Column Name="maNV" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="tenNV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="gioiTinhNV" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="ngaySinhNV" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="diaChiNV" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ngayVaoLam" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="dienThoaiNV" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="matKhau" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PHIEU_MUON" Member="PHIEU_MUONs">
+    <Type Name="PHIEU_MUON">
+      <Column Name="maPhieu" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="maSV" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="maNV" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SACH" Member="SACHes">
+    <Type Name="SACH">
+      <Column Name="maSach" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="tenSach" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="gia" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="soLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="maNXB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="maTL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="soLuongTon" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="maTG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SINH_VIEN" Member="SINH_VIENs">
+    <Type Name="SINH_VIEN">
+      <Column Name="maSV" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="hotenSV" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="gioiTinhSV" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="ngaysinhSV" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="lopSV" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+      <Column Name="ngayLamThe" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ngayHetHan" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TAC_GIA1" Member="TAC_GIA1s">
+    <Type Name="TAC_GIA1">
+      <Column Name="maTG" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="tenTG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.THE_LOAI" Member="THE_LOAIs">
+    <Type Name="THE_LOAI">
+      <Column Name="maTL" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="tenTL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GhiChu" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TRA_SACH" Member="TRA_SACHes">
+    <Type Name="TRA_SACH">
+      <Column Name="maPhieu" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="maSach" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="maNV" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ngayTra" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="tenSach" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="tinhTrang" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

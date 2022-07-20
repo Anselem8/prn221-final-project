@@ -1,0 +1,60 @@
+﻿<Window x:Class="QLTV_ThucTap.ThongKeTra"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLTV_ThucTap"
+        mc:Ignorable="d"
+        Title="Thống kê trả " Icon="D:\NGAN\ThucTap\Final\QLTV\QLTV\hinhanh\account.png" Background="White"  VerticalAlignment="Center" Height="537" Width="963" Margin="0,0,0,7" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Margin="0,1,81,0">
+        <Grid  Background="Gray" HorizontalAlignment="Left" Height="45" VerticalAlignment="Top" Width="955" Margin="0,0,-79,0">
+            <Button x:Name="btntra" 
+                    Background="Red" Foreground="White" 
+                    Margin="0,10,710,0" Height="25" 
+                    Width="150" Content="Danh Sách Trả" 
+                    HorizontalAlignment="Right" VerticalAlignment="Top" Click="btntra_Click" RenderTransformOrigin="0.967,0.6" />
+            <Button x:Name="btnXuatFile"  Background="Chocolate" 
+                    Foreground="White" Margin="0,10,105,0" 
+                    Height="25" Width="150" Content="Xuất ra file Excel" 
+                    HorizontalAlignment="Right" VerticalAlignment="Top" RenderTransformOrigin="0.167,0.6" Click="btnXuatFile_Click" />
+        </Grid>
+        <Grid HorizontalAlignment="Left" Margin="0,50,-89,-33" Width="965" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200*"/>
+
+            </Grid.ColumnDefinitions>
+            <Grid Margin="-10,10,10,25"  Height="500">
+                <DataGrid   
+            Name="datagridtra" 
+            Background="LightSeaGreen" 
+            Margin="5,0,0,35" 
+            CanUserAddRows="False" 
+            CanUserReorderColumns="False" 
+            CanUserResizeRows="False" 
+            IsReadOnly="True" 
+            CanUserResizeColumns="True" 
+            CanUserSortColumns="False" 
+            Foreground="White" 
+            FontFamily="Comic Sans MS" 
+            AutoGenerateColumns="False" 
+            VerticalScrollBarVisibility="Visible"
+            HorizontalScrollBarVisibility="Visible" 
+                   
+                Height="auto"
+            >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Mã Sinh Viên" Width="100" Binding="{Binding maSV}"/>
+                        <DataGridTextColumn Header="Mã Phiếu" Width="100" Binding="{Binding maPhieu}"/>
+                        <DataGridTextColumn Header="Mã Sách" Width="100" Binding="{Binding maSach}"/>
+                        <DataGridTextColumn Header="Ngày Mượn" Width="180" Binding="{Binding ngayMuon }"/>
+                        <DataGridTextColumn Header="Ngày Trả" Width="180" Binding="{Binding ngayTra}"/>
+                        <DataGridTextColumn Header="Số Lượng" Width="180" Binding="{Binding soLuong}"/>
+                        <DataGridTextColumn Header="Tình Trạng" Width="150" Binding="{Binding tinhTrang}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</Window>

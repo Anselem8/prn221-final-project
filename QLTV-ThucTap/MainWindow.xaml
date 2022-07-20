@@ -1,0 +1,144 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLTV_ThucTap"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="QLTV_ThucTap.MainWindow"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" 
+        Height="800" 
+        Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}}" 
+        Foreground="White">
+    <Window.Resources>
+        <Storyboard x:Key="MenuOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="gridMenu">
+                <EasingDoubleKeyFrame KeyTime="0:0:0:0.2" Value="300"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Menuclose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="gridMenu" Storyboard.TargetProperty="(FrameworkElement.Width)">
+                <EasingDoubleKeyFrame KeyTime="0:0:0:0.2" Value="70"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource Menuclose}" />
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid Background="Lavender" Margin="0,0,0,7" Width="1500">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="475*"/>
+            <ColumnDefinition Width="61*"/>
+        </Grid.ColumnDefinitions>
+        <Image Source="D:\NGAN\ThucTap\LinQ to SQL\QLTV-ThucTap\QLTV-ThucTap\hinhanh\dannhap.jpg" Stretch="Fill" HorizontalAlignment="Center"  Grid.ColumnSpan="2" Margin="70,10,10,-10" Width="1420"/>
+        <Grid Height="60"  VerticalAlignment="Top" Background="#2b1515" HorizontalAlignment="Left" Width="1500" Margin="1,0,-1,0" Grid.ColumnSpan="2" >
+            <TextBlock FontFamily="Algerian" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40" Margin="424,4,266,4" Width="506" Text="Library management" />
+            <StackPanel VerticalAlignment="Center" Margin="5" >
+                <!--<TextBlock Text="Able Dutra" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Height="29" Margin="936,0,31,0"/>-->
+                <materialDesign:PopupBox HorizontalAlignment="Right" Margin="0,10,0,0" PlacementMode="BottomAndAlignLeftEdges" StaysOpen="False" Width="166" RenderTransformOrigin="8.837,0.308" Height="62" >
+                    <StackPanel Width="150">
+                        <Button Content="TKDS Đang Mượn " Click="Button_Click_9"/>
+                        <Separator/>
+                        <Button Content="TKDS Đã Trả " Click="Button_Click_10" />
+                        <Separator/>
+                        <Button x:Name="btnlogout" Content="Thoát" Click="btnlogout_Click"/>
+                    </StackPanel>
+                </materialDesign:PopupBox>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="gridMenu" Margin="1,60,0,0" Width="69" HorizontalAlignment="Left" Background="#211a1a">
+            <StackPanel  Margin="0,0,0,0">
+                <Grid Height="60" Background="#211a1a">
+                    <Button x:Name="btnOpenMenu" 
+                            Width="80" 
+                            Height="60" 
+                            Background="#211a1a" 
+                            BorderThickness="0"
+                            HorizontalAlignment="Right" 
+                            Margin="0,0,0,10" 
+                            VerticalAlignment="Center" 
+                            Click="btnopenmenu_Click">
+                        <materialDesign:PackIcon Foreground="White" Kind="Menu" Width="60" Height="60"/>
+                    </Button>
+                    <Button x:Name="btnCloseMenu" 
+                            Width="80" 
+                            Height="60" 
+                            Background="#211a1a"
+                            BorderThickness="0" 
+                            HorizontalAlignment="Right" 
+                            Margin="0,0,0,10" 
+                            VerticalAlignment="Center" 
+                            Visibility="Collapsed" 
+                            Click="btnclosemenu_Click">
+                        <materialDesign:PackIcon Foreground="White" Kind="ArrowLeft" Width="60" Height="60"/>
+                    </Button>
+                </Grid>
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground="Wheat" >
+                    <ListViewItem  Height="80" Selected="ListViewItem_Selected">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon Kind="ViewDashboard" Margin="15 5" Width="25" Height="25" VerticalAlignment="Center" />
+                            <Button Click="Button_Click_1" Content="Student Management" VerticalAlignment="Center" Margin="20 10 " Width="205" />
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem  Height="80">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon Margin="15 5" Kind="ViewDashboard" Width="25" Height="25" VerticalAlignment="Center" />
+                            <Button Click="Button_Click_2" Content="Employee Management" VerticalAlignment="Center" Margin="20 10 " Width="205" />
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem  Height="80">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon Margin="15 5" Kind="ViewDashboard" Width="25" Height="25" VerticalAlignment="Center" />
+                            <Button Click="Button_Click_3" Content="Book Management" VerticalAlignment="Center" Margin="20 10 " Width="205" />
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem  Height="80">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon Margin="15 5" Kind="ViewDashboard" Width="25" Height="25" VerticalAlignment="Center" />
+                            <Button Click="Button_Click_4" Content="Category Management" VerticalAlignment="Center" Margin="20 10 " Width="205"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem  Height="80">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon Margin="15 5" Kind="ViewDashboard" Width="25" Height="25" VerticalAlignment="Center" />
+                            <Button Click="Button_Click_5" Content="Actor Management" VerticalAlignment="Center" Margin="20 10 " Width="205"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem  Height="80">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon Margin="15 5" Kind="ViewDashboard" Width="25" Height="25" VerticalAlignment="Center" />
+                            <Button Click="Button_Click_6" Content="Publisher Management" VerticalAlignment="Center" Margin="20 10 " Width="205"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <!--<ListViewItem  Height="60">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon Margin="15 5" Kind="ViewDashboard" Width="25" Height="25" VerticalAlignment="Center" />
+                            <Button Content="QL Ngôn Ngữ" VerticalAlignment="Center" Margin="20 10 " Width="140"/>
+                        </StackPanel>
+                    </ListViewItem>-->
+                    <ListViewItem  Height="80">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon Margin="15 5" Kind="ViewDashboard" Width="25" Height="25" VerticalAlignment="Center" />
+                            <Button Click="Button_Click_7" Content="Borrow/Lend Management" VerticalAlignment="Center" Margin="20 10 " Width="205" />
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem  Height="80">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon Margin="15 5" Kind="ViewDashboard" Width="25" Height="25" VerticalAlignment="Center" />
+                            <Button Click="Button_Click_8" Content="Borrow/Lend List" VerticalAlignment="Center" Margin="20 10 " Width="205" />
+                        </StackPanel>
+                    </ListViewItem>
+
+
+                </ListView>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
